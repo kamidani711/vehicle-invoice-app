@@ -1,0 +1,231 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
+
+/* Light/Dark Mode */
+.dark body {
+  background-color: #111827;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #4b5563;
+}
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  background-color: #1f2937;
+  color: white;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar.open {
+  transform: translateX(0);
+}
+.dark .sidebar {
+  background-color: #030712;
+}
+.sidebar h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.sidebar ul li {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.sidebar ul li:hover {
+  background-color: #374151;
+}
+.sidebar ul li.active {
+  background-color: #2563eb;
+}
+.sidebar button {
+  width: 100%;
+  background-color: #4b5563;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+.sidebar button:hover {
+  background-color: #6b7280;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  margin-left: 0;
+  transition: margin-left 0.3s ease-in-out;
+}
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: 16rem;
+  }
+}
+
+/* Toggle Button */
+.toggle-btn {
+  display: block;
+  padding: 0.5rem;
+  background-color: #4b5563;
+  color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .toggle-btn {
+    display: none;
+  }
+}
+
+/* General Styles */
+h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+.dark h1 {
+  color: #f3f4f6;
+}
+.card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.dark .card {
+  background-color: #1f2937;
+}
+.table-container {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+.dark .table-container {
+  background-color: #1f2937;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: #374151;
+}
+.dark th, .dark td {
+  color: #d1d5db;
+}
+thead {
+  background-color: #374151;
+  color: white;
+}
+.dark thead {
+  background-color: #111827;
+}
+tr:hover {
+  background-color: #f3f4f6;
+}
+.dark tr:hover {
+  background-color: #374151;
+}
+button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+button:hover {
+  background-color: #1d4ed8;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.green-btn {
+  background-color: #16a34a;
+}
+.green-btn:hover {
+  background-color: #15803d;
+}
+input, select {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+.dark input, .dark select {
+  background-color: #1f2937;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 32rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slide-in-top 0.3s ease-out;
+}
+.dark .modal-content {
+  background-color: #1f2937;
+}
+@keyframes slide-in-top {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
